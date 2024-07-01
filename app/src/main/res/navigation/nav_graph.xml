@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/persons_fragment">
+
+    <fragment
+        android:id="@+id/persons_fragment"
+        android:name="com.example.randomuser.presentation.main.persons.PersonsFragment"
+        android:label="fragment_persons"
+        tools:layout="@layout/fragment_persons">
+
+        <action
+            android:id="@+id/action_personsFragment_to_personDetailFragment"
+            app:destination="@id/person_detail_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/person_detail_fragment"
+        android:name="com.example.randomuser.presentation.main.persondetail.PersonDetailFragment"
+        android:label="fragment_person_detail"
+        tools:layout="@layout/fragment_person_detail">
+        <argument
+            android:name="email"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+</navigation>
