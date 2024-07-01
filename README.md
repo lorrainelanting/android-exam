@@ -1,57 +1,42 @@
-# android-exam
+# Android exam | Random User
 
-## Goal of the exam ##
-To assess a developer's skills in terms of developing Android apps and decision-making on solving common development tasks.
+## Architecture Pattern
+- Clean MVVM (Model-View-ViewModel)
 
-## Tasks ##
+## Libraries/Tools
+- Retrofit
+- Dagger Hilt
+- Kotlin Coroutines
+- Android Room Database
+- Mockito
+- JUnit
+- NavGraph
+- Paging Source
+- ViewModel
+- Flow
+- Lifecycle
 
-- Fork this repository
-- Create an Android project with the following features:
-    - Create User Interfaces with XML in android
-    - Loads and shows a list of Persons from a remote source(can be from some random source / https://randomuser.me)
-    - Caches the loaded list of Persons
-    - Prevents any loading from the remote source if the cache is available
-    - Shows the full details of a Person on a separate screen
-    - Swipe to refresh (Force update the cache data)
-    - Loading more data when scrolling down bottom.
-    - Each `Person` must have the following data: or use the API data https://randomuser.me
-        - First name
-        - Last name
-        - Birthday
-        - Age (derived from Birthday)
-        - Email address
-        - Mobile number
-        - Address
-        - Contact person
-        - Contact person's phone number
-    - Uses Clean Architecture
-    - Uses Modularization 
+## About the Clean MVVM (Model-View-ViewModel)
+It aims to separate the user interface logic from the business logic of the application, making it easier to maintain, test, and evolve.
 
-- Exam Strategy
-    - Start with a Basic Skeleton
-    - Implement Core Features
-    - Detail Screen and Navigation
-    - Additional Features
-      - Swipe to refresh
-      - Pagination
-    - Testing and Material Design
-    - Git and Documentation
-- Ensure all requirements are met and send an email to arjay.paulino@cybilltek.com once done.
+The project is divided into four layers:
+- Core
+- Data
+- Domain
+- Presentation
 
-Any libraries or tools of the developer's choosing may be used.
+### Core
+Where the application and dependency injection modules located.
 
-## Optional requirements ##
+### Data
+It contains the API interfaces, databases, and repository implementation.
+It acts as an abstraction layer, shielding the data from direct interaction with the rest of the application.
+Where the local and remote datasource is stored.
 
-- Changes are committed following Git Flow
-- Follows [this guideline](https://github.com/ribot/android-guidelines)
-- Unit tests
-- UI tests
-- Material design
-- Has proguard enabled
-- Respects Activity/Fragment lifecycle
-- `Mock` flavour that uses mock web server and doesn't have a `release` variant
-- `Prod` flavour that uses a random remote source and doesn't have a `debug` variant
-- Uses Model-View-ViewModel or similar design pattern
-- Uses the Observable pattern
-- Uses Dependency Injection
-- Uses RxJava
+### Domain
+Model (entity of data), Repository interfaces, and Use Cases are included in this layer.
+UseCase for ViewModel access only.
+
+### Presentation
+Responsible for displaying the user interface and interacting with the user. It is typically implemented using UI elements like controls, layouts, and widgets.
+The view observes the ViewModel and updates its appearance accordingly.
